@@ -11,15 +11,29 @@ import { TreeViewHorizontalComponent } from './tree-view-horizontal/tree-view-ho
 import { TreeViewVerticalComponent } from './tree-view-vertical/tree-view-vertical.component';
 import { LoginComponent } from './login/login.component';
 
+import { RouterModule, Routes } from '@angular/router';
+import { ResourceNotFoundComponent } from './resource-not-found/resource-not-found.component';
+import { MainPageComponent } from './main-page/main-page.component';
+
+const appRoutes: Routes = [
+  { path: '', component: MainPageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'tree', component: TreeViewVerticalComponent},
+  { path: '**', component: ResourceNotFoundComponent},
+];
+
 @NgModule({
   declarations: [
     AppComponent,
     NavPanelComponent,
     TreeViewHorizontalComponent,
     TreeViewVerticalComponent,
-    LoginComponent
+    LoginComponent,
+    ResourceNotFoundComponent,
+    MainPageComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
     BrowserModule,
     NgbModule.forRoot(),
     BrowserAnimationsModule,
