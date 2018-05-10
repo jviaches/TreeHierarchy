@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavPanelComponent } from './nav-panel/nav-panel.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { TreeViewHorizontalComponent } from './tree-view-horizontal/tree-view-horizontal.component';
+import { TreeViewVerticalComponent } from './tree-view-vertical/tree-view-vertical.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavPanelComponent
+    NavPanelComponent,
+    TreeViewHorizontalComponent,
+    TreeViewVerticalComponent
   ],
   imports: [
     BrowserModule,
