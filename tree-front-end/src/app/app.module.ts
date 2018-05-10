@@ -9,13 +9,15 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { TreeViewHorizontalComponent } from './tree-view-horizontal/tree-view-horizontal.component';
 import { TreeViewVerticalComponent } from './tree-view-vertical/tree-view-vertical.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavPanelComponent,
     TreeViewHorizontalComponent,
-    TreeViewVerticalComponent
+    TreeViewVerticalComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
