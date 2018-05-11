@@ -1,3 +1,4 @@
+import { HttpModule, Http } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,10 +11,13 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { TreeViewHorizontalComponent } from './tree-view-horizontal/tree-view-horizontal.component';
 import { TreeViewVerticalComponent } from './tree-view-vertical/tree-view-vertical.component';
 import { LoginComponent } from './login/login.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { RouterModule, Routes } from '@angular/router';
 import { ResourceNotFoundComponent } from './resource-not-found/resource-not-found.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { ServerHttpInterceptor } from './core/http.interceptor';
+import { AppServices } from './core/services';
 
 const appRoutes: Routes = [
   { path: '', component: MainPageComponent },
@@ -33,7 +37,7 @@ const appRoutes: Routes = [
     MainPageComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    RouterModule.forRoot(appRoutes, { enableTracing: false }),
     BrowserModule,
     NgbModule.forRoot(),
     BrowserAnimationsModule,
@@ -42,9 +46,14 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ServerHttpInterceptor,
+    multi: true
+  }, AppServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

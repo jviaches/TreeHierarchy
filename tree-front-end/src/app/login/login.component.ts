@@ -1,29 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpInterceptor } from './../core/http.interceptor';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ServerHttpInterceptor } from './../core/http.interceptor';
 
 import { TokenManager } from '../token/token-manager.component';
+import { AppServices } from '../core/services';
+import { RequestOptions } from '@angular/http';
 
 @Component({
   selector: 'app-login',
+
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  constructor(
-    public appVariables: TokenManager,
-    public http: HttpInterceptor
-  ) { }
+  @ViewChild('emailInput') emailInput: ElementRef;
+  @ViewChild('passwordInput') passwordInput: ElementRef;
+
+  constructor(public services: AppServices) { }
 
   ngOnInit() {
   }
 
-  login(userId: string, password: string) {
-    const body = { UserId: userId, Password: password };
+  login() {
+    const body = {'username': this.emailInput.nativeElement.value, 'password': this.passwordInput.nativeElement.value};
+    this.services.postOject('login', body);
 
-    return this.http.postO('localhost:4200/Login', body, { aa: ''},
-    (resp: any) => {}
-  );
+    // this.services.testPost();
   }
-
 }

@@ -1,24 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, Response, URLSearchParams } from '@angular/http';
+// import { Headers, Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs';
+import { HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 
 
 @Injectable()
-export class HttpInterceptor {
+export class ServerHttpInterceptor implements HttpInterceptor {
 
-  constructor(public baseHttp: Http) { }
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (!req.headers.has('Content-Type')) {
+      req = req.clone({ headers: req.headers.set('Content-Type', 'application/json') });
+    }
 
-  postO(url: string,
-    body: any, opts: any = {},
-    processResult: (result: any) => void): Observable<any> {
-
-    return this.baseHttp.post(this.buildFullUrl(url), body, opts
-      .subscribe((response: Response) => ''));
-
+    //   // req = req.clone({ headers: req.headers.set('Accept', 'application/json') });
+    console.log(JSON.stringify(req.headers));
+    return next.handle(req);
   }
-
-  buildFullUrl(url: string): string {
-    return 'localhost:4200' + url;
-  }
-
 }
