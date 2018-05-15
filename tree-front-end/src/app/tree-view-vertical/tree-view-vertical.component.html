@@ -43,7 +43,7 @@
 <div class="tree">
   <ul>
     <ng-template #recursiveList let-list>
-      <li *ngFor="let item of nodes">
+      <li *ngFor="let item of list">
         <a href="#">{{item.firstName}}</a>
         <ul *ngIf="item.childreen.length > 0">
           <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.childreen }"></ng-container>
