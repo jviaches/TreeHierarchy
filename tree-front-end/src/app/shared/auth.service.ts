@@ -21,7 +21,7 @@ export class AuthService {
         //this.router.navigateByUrl('/profile');
       })
       .catch(err => {
-        console.log('Something went wrong: ', err.message);        
+        console.log('Something went wrong: ', err.message);
       });
   }
 
@@ -44,7 +44,7 @@ export class AuthService {
       .then(value => {
         console.log('Sucess', value),
           console.log('The given name is ' + value.additionalUserInfo.profile.given_name);//,
-          //this.router.navigateByUrl('/profile');
+        //this.router.navigateByUrl('/profile');
       })
       .catch(error => {
         console.log('Something went wrong: ', error);
