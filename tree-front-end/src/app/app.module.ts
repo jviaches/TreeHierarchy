@@ -16,8 +16,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ResourceNotFoundComponent } from './resource-not-found/resource-not-found.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { ServerHttpInterceptor } from './core/http.interceptor';
-import { AppServices } from './core/services';
+import { ServerHttpInterceptor } from './shared/core/http.interceptor';
+import { AppServices } from './shared/core/services/app.services';
 
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';

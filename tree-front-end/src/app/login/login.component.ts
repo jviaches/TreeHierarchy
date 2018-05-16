@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ServerHttpInterceptor } from './../core/http.interceptor';
+import { ServerHttpInterceptor } from './../shared/core/http.interceptor';
 
-import { TokenManager } from '../token/token-manager.component';
+import { TokenManager } from '../shared/token/token-manager.component';
 import { AppServices } from '../shared/core/services/app.services';
 import { RequestOptions } from '@angular/http';
 

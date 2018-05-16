@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ServerHttpInterceptor } from './../core/http.interceptor';
-import { AppServices } from '../core/services';
+import { ServerHttpInterceptor } from './../shared/core/http.interceptor';
+import { AppServices } from '../shared/core/services/app.services';
 
 @Component({
   selector: 'app-main-page',
