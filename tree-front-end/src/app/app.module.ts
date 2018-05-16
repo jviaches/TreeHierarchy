@@ -19,6 +19,18 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { ServerHttpInterceptor } from './core/http.interceptor';
 import { AppServices } from './core/services';
 
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCZ5QOCUPiCo6FYdRShAX9JXfscTVnqVUc",
+  authDomain: "luminous-torch-2175.firebaseapp.com",
+  databaseURL: "https://luminous-torch-2175.firebaseio.com",
+  projectId: "luminous-torch-2175",
+  storageBucket: "luminous-torch-2175.appspot.com",
+  messagingSenderId: "127263732456"
+};
+
 const appRoutes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'login', component: LoginComponent },
@@ -47,7 +59,9 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
