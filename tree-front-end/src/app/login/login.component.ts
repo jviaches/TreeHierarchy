@@ -2,10 +2,10 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ServerHttpInterceptor } from './../core/http.interceptor';
 
 import { TokenManager } from '../token/token-manager.component';
-import { AppServices } from '../core/services';
+import { AppServices } from '../shared/core/services/app.services';
 import { RequestOptions } from '@angular/http';
 
-import { AuthService } from '../shared//auth.service';
+import { AuthService } from '../shared/core/services/auth.service';
 
 @Component({
   selector: 'app-login',

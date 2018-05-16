@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Token } from './token';
-import { AppVariables } from './app.variables';
+import { AppVariables } from './../core/app.variables';
 
 @Injectable()
 export class TokenManager {
