@@ -30,6 +30,7 @@ export class TreeViewVerticalComponent implements OnInit {
 
     const child2 = new TreeNode();
     child2.Person1FirstName = 'Adam2';
+    child2.Person2FirstName = 'Eve2';
     rootChild.childreen.push(child2);
 
     const child3 = new TreeNode();
