@@ -46,7 +46,11 @@
 			<li *ngFor="let item of list" >
 				<a href="#" style="text-align:center;">
 					<img src="http://cdn.onlinewebfonts.com/svg/img_311846.png" height="40" width="40" /> {{item.Person1FirstName}}
-					<img src="http://cdn.onlinewebfonts.com/svg/img_311846.png" height="40" width="40" style="margin-left: 10px"/> {{item.Person2FirstName}} 
+          <img src="http://cdn.onlinewebfonts.com/svg/img_311846.png" height="40" width="40" style="margin-left: 10px"/> {{item.Person2FirstName}}
+          <div class="nodeButton">
+            <a  href="/add/" >+</a>
+            <a  href="/remove/" >-</a>
+          </div>
 				</a>
 				<ul *ngIf="item.childreen.length > 0">
 					<ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.childreen }"></ng-container>
