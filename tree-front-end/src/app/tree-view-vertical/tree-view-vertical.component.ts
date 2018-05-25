@@ -72,25 +72,15 @@ export class TreeViewVerticalComponent implements OnInit {
     parenNode.childreen.push(childNode);
   }
 
-  RemoveNode(parenNode: TreeNode, removedNode: TreeNode) {
-    if (parenNode == null || removedNode == null) {
-      return;
-    }
+  RemoveNode(removedNode: TreeNode) {
+     if (removedNode == null) {
+       return;
+     }
 
-    this.RemoveChildreenNodes(parenNode);
-
-    const nodeIndex = parenNode.childreen.indexOf(removedNode);
+    const nodeIndex = removedNode.parentNode.childreen.indexOf(removedNode);
     if (nodeIndex !== -1) {
-      parenNode.childreen.slice(nodeIndex, 1);
+      removedNode.parentNode.childreen.splice(nodeIndex, 1);
+
     }
-
-  }
-
-  RemoveChildreenNodes(parenNode: TreeNode) {
-    if (parenNode == null) {
-      return;
-    }
-
-    parenNode.childreen = [];
   }
 }

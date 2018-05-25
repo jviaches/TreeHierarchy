@@ -45,11 +45,11 @@
 		<ng-template #recursiveList let-list>
 			<li *ngFor="let item of list" >
 				<a href="#" style="text-align:center;">
-					<img src="http://cdn.onlinewebfonts.com/svg/img_311846.png" height="40" width="40" /> {{item.entitys[0].PersonFirstName}}
-          <!-- <img src="http://cdn.onlinewebfonts.com/svg/img_311846.png" height="40" width="40" style="margin-left: 10px"/> {{item.entitys[1].PersonFirstName}} -->
+					<img src="http://cdn.onlinewebfonts.com/svg/img_311846.png" height="40" width="40" /> {{item.entitys[0]?.PersonFirstName}}
+          <img ng-show="item.entitys[1] != null" src="http://cdn.onlinewebfonts.com/svg/img_311846.png" height="40" width="40" style="margin-left: 10px"/> {{item.entitys[1]?.PersonFirstName}}
           <div class="nodeButton">
             <a  href="javascript:void(0)" role="button" (click)="AddNode(item)" >+</a>
-            <a  href="javascript:void(0)" role="button" (click)="RemoveChildreenNodes(item)" >-</a>
+            <a  href="javascript:void(0)" role="button" (click)="RemoveNode(item)" >-</a>
           </div>
 				</a>
 				<ul *ngIf="item.childreen.length > 0">
