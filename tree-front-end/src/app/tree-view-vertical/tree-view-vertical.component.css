@@ -74,7 +74,7 @@ right connector from last child*/
 	color: #666;
 	font-family: arial, verdana, tahoma;
 	font-size: 11px;
-	display: inline-block;
+  display: inline-block;
 
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -97,13 +97,13 @@ right connector from last child*/
 
 }
 
-.tree ul li a:hover .nodeButton  {
+.tree ul li:first-child  a:hover .nodeButton  {
   display: inline-block;
   margin: 0 auto;
 
-  position: absolute;
+  /* position: relative;
   right:0;
-  top:0.5;
+  top:0.5; */
 }
 
 /*Connector styles on hover*/
