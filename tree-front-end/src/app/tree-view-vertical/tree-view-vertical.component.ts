@@ -56,7 +56,7 @@ export class TreeViewVerticalComponent implements OnInit {
     parenNode.childreen.push(childNode);
   }
 
-  RemoveNode(parenNode: TreeNode) {
+  RemoveChildreenNodes(parenNode: TreeNode) {
     if (parenNode == null) {
       return;
     }

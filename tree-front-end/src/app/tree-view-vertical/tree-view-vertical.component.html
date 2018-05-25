@@ -49,7 +49,7 @@
           <img src="http://cdn.onlinewebfonts.com/svg/img_311846.png" height="40" width="40" style="margin-left: 10px"/> {{item.Person2FirstName}}
           <div class="nodeButton">
             <a  href="javascript:void(0)" role="button" (click)="AddNode(item)" >+</a>
-            <a  href="javascript:void(0)" role="button" (click)="RemoveNode(item)" >-</a>
+            <a  href="javascript:void(0)" role="button" (click)="RemoveChildreenNodes(item)" >-</a>
           </div>
 				</a>
 				<ul *ngIf="item.childreen.length > 0">
