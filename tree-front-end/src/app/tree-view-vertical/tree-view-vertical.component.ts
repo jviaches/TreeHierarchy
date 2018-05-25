@@ -23,7 +23,7 @@ export class TreeViewVerticalComponent implements OnInit {
     const rootChild = new TreeNode();
     rootChild.Person1FirstName = 'RootChild';
     this.mainNode.childreen.push(rootChild);
-    
+
     const child1 = new TreeNode();
     child1.Person1FirstName = 'Adam1';
     rootChild.childreen.push(child1);
@@ -44,5 +44,23 @@ export class TreeViewVerticalComponent implements OnInit {
     const child32 = new TreeNode();
     child32.Person1FirstName = 'Adam3-2';
     child3.childreen.push(child32);
+  }
+
+  AddNode(parenNode: TreeNode) {
+    if (parenNode == null) {
+      return;
+    }
+
+    const childNode = new TreeNode();
+    childNode.Person1FirstName = 'TestNode';
+    parenNode.childreen.push(childNode);
+  }
+
+  RemoveNode(parenNode: TreeNode) {
+    if (parenNode == null) {
+      return;
+    }
+
+    parenNode.childreen = [];
   }
 }
