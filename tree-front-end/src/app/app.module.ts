@@ -34,7 +34,9 @@ const firebaseConfig = {
 const appRoutes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: NavPanelComponent},
+  { path: 'dashboard', component: NavPanelComponent,  children: [{ path: '', component: TreeViewVerticalComponent },
+                                                                 { path: 'horiz', component: TreeViewHorizontalComponent },
+                                                                 { path: 'vert', component: TreeViewVerticalComponent }] },
   { path: '**', component: ResourceNotFoundComponent},
 ];
 
